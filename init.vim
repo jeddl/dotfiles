@@ -6,6 +6,7 @@ set relativenumber
 set nohlsearch
 set hidden
 set noerrorbells
+" set wrap linebreak
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -52,6 +53,8 @@ Plugin 'git@github.com:ctrlpvim/ctrlp.vim.git'
 Plugin 'mileszs/ack.vim'
 Plugin 'git@github.com:inkarkat/vim-ingo-library.git'
 Plugin 'inkarkat/vim-spellcheck'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
 
 " ===================
 " end of plugins
@@ -60,7 +63,25 @@ call vundle#end()               " required
 filetype plugin indent on       " required
 
 " Theme and syntax
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+
+    " powerline symbols
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline_symbols.brach = ''
+    let g:airline_symbols.readonly = ''
+"    let g:airline_symbols.linenr = '☰'
+    let g:airline_symbols.maxlinenr = ''
+
 colorscheme gruvbox
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_theme = 'gruvbox'
 set background=dark
 augroup SyntaxSettings
     autocmd!
@@ -78,19 +99,15 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>v :vsplit v<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>g :NERDTreeClose<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-
-"nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 "nnoremap <Leader>ps :Rg<SPACE>
 "nnoremap <C-p> :GFiles<CR>
 "nnoremap <Leader>pf :Files<CR>
-"nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
-"nnoremap <Leader>+ :vertical resize +5<CR>
-"nnoremap <Leader>- :vertical resize -5<CR>
 "nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
@@ -100,7 +117,6 @@ nnoremap <silent> <leader>f :NERDTreeFind<CR>
 
 " YCM
 " nnoremap <silent> <leader>gt :YcmCompleter GoToDeclaration<CR>
-nnoremap <silent> <leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <leader>gd :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <leader>gi :YcmCompleter GoToImplementation<CR>
