@@ -80,7 +80,9 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>g :NERDTreeClose<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
+
 
 "nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 "nnoremap <Leader>ps :Rg<SPACE>
@@ -97,7 +99,13 @@ nnoremap <silent> <leader>f :NERDTreeFind<CR>
 " let NERDTreeMinimalUI = 1
 
 " YCM
-" nnoremap <silent> <leader>gt :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>gt :YcmCompleter GoToDeclaration<CR>
+nnoremap <silent> <leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>gi :YcmCompleter GoToImplementation<CR>
+nnoremap <silent> <leader>gt :YcmCompleter GoToType<CR>
+" nnoremap <leader>rn :YcmCompleter RefactorRename<CR>
 " nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
 
 
