@@ -68,7 +68,7 @@ Xcursor.size:                     0
 
 !!! Control panel font size and terminal font size in case the high resolution screen
 !!! Should not have to acivate the following lines if we are not using /usr/bin/terminal
-!URxvt.fon                xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=16, xft:Sans\ Serif:pixelsize=16
+!URxvt.font:              xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=16, xft:Sans\ Serif:pixelsize=16
 !URxvt.font:              xft:NotoSerifDisplay:pixelsize=16, xft:Sans\ Serif:pixelsize=16
 !terminal.font:			  xft:Sans\ Serif:pixelsize=16
 

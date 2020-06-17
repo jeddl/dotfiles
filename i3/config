@@ -27,8 +27,11 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
-bindsym $mod+e exec terminal -e 'ranger'
+set $term --no-startup-id $TERMINAL
+bindsym $mod+Return exec $term
+bindsym $mod+e exec $term -e 'ranger'
+bindsym $mod+i exec $term -e 'neomutt'
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -36,6 +39,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+b exec --no-startup-id $BROWSER
+bindsym $mod+v exec --no-startup-id /usr/bin/code-oss
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -341,7 +345,6 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
         font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
@@ -386,7 +389,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -428,4 +431,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
