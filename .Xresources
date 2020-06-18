@@ -8,9 +8,10 @@ Xft.dpi:       120
 !Xft.lcdfilter: lcddefault
 
 !! st setup (Luke Version)
-*.font:         DejaVu Sans Mono for Powerline:pixelsize=16
+!*.font:         DejaVu Sans Mono for Powerline:pixelsize=16
+*.font:        DejaVuSansMonoNerdFont:pixelsize=16
 *.alpha:        1
-st.alpha:       0.9
+st.alpha:       0.8
 !*color0:       black
 
 
