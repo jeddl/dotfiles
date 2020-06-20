@@ -9,7 +9,8 @@ set noerrorbells
 " set wrap linebreak
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set expandtab
+" Convert tab to space
+" set expandtab
 set smartindent
 set nu
 set nowrap
@@ -56,7 +57,7 @@ Plugin 'git@github.com:inkarkat/vim-ingo-library.git'
 Plugin 'inkarkat/vim-spellcheck'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
 " TS syntax highlight
 Plugin 'git@github.com:leafgarland/typescript-vim.git'
 Plugin 'peitalin/vim-jsx-typescript'
@@ -66,6 +67,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 " ===================
 call vundle#end()               " required
 filetype plugin indent on       " required
+
 
 " ===== COC related =====
 "
@@ -155,21 +157,38 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " 
-" ===== COC related ===== 
+" ===== COC Related End ===== 
 
-
-" Indentation
-autocmd FileType Html setlocal ts=2 sts=2 sw=2
-autocmd FileType JavaScript setlocal ts=2 sts=2 sw=2
-autocmd FileType TypeScript setlocal ts=2 sts=2 sw=2
-autocmd FileType Python setlocal ts=4 sts=4 sw=4
-autocmd FileType Go setlocal ts=8 sts=8 sw=8
 " Syntax settings
 augroup SyntaxSettings
     autocmd!
     " set filetypes as typescript.tsx
     autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 augroup END
+
+" ==============================
+" Indentation Setttings
+" ==============================
+
+" Indentation => space based
+"autocmd FileType html setlocal ts=2 sw=2 expandtab
+"autocmd FileType javascript setlocal ts=2 sw=2 expandtab
+"autocmd FileType typescript setlocal ts=2 sw=2 expandtab
+"autocmd FileType typescript.tsx setlocal ts=2 sw=2 expandtab
+"autocmd FileType python setlocal ts=4 sw=4 expandtab
+"autocmd FileType go setlocal ts=8 sw=8 expandtab
+
+" Indentation => tab based
+autocmd FileType html setlocal ts=2 sts=2 sw=2
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2
+autocmd FileType python setlocal ts=4 sts =2 sw=4
+autocmd FileType go setlocal ts=8 sts=2 sw=8
+
+" ==============================
+" Indentation Setttings End
+" ==============================
 
 " Theme and syntax
 if !exists('g:airline_symbols')
@@ -186,15 +205,14 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.maxlinenr = ''
 
 colorscheme gruvbox
-let g:indentLine_enabled = 1
-let g:indentLine_setColors = 15
-let g:indentLine_color_term = 15
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'gruvbox'
 set background=dark
-set list lcs=tab:\|\
+"set list lcs=tab:\|\
+" Show tab indentation (no spaces inserted)
+set list
 
 " Init
 let loaded_matchparen = 1
