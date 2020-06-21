@@ -51,6 +51,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 " File search
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'git@github.com:ctrlpvim/ctrlp.vim.git'
 Plugin 'mileszs/ack.vim'
 Plugin 'git@github.com:inkarkat/vim-ingo-library.git'
@@ -233,13 +234,6 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-"nnoremap <Leader>ps :Rg<SPACE>
-"nnoremap <C-p> :GFiles<CR>
-"nnoremap <Leader>pf :Files<CR>
-"nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-"vnoremap J :m '>+1<CR>gv=gv
-"vnoremap K :m '<-2<CR>gv=gv
-
 " ===============================
 " Git Fugitive
 " ===============================
@@ -247,11 +241,15 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gdiffsplit<CR>
 
-
 " ===============================
 
-" nerdtree
-" let NERDTreeMinimalUI = 1
+" ===============================
+" FZF
+" ===============================
+
+nnoremap <leader>o :FZF<CR>
+
+" ===============================
 
 " SpellCheck
 nnoremap <leader>sp :SpellCheck<CR>
@@ -260,14 +258,4 @@ let g:SpellCheck_DefineAuxiliaryCommands = 0
 highlight link qfSpellErrorWord             SpellBad
 highlight link qfSpellErrorWordInContext    Normal
 highlight link qfSpellContext               SpecialKey
-
-" ag items
-if executable('ag')
-    " Use ag over grep"
-    set grepprg = ag\ --nogroup\ --nocolor\ --column
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    let g:ctrlp_use_caching = 0
-endif
 
