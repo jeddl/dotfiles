@@ -240,6 +240,16 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 "vnoremap J :m '>+1<CR>gv=gv
 "vnoremap K :m '<-2<CR>gv=gv
 
+" ===============================
+" Git Fugitive
+" ===============================
+
+nmap <leader>gs :G<CR>
+nmap <leader>gd :Gdiffsplit<CR>
+
+
+" ===============================
+
 " nerdtree
 " let NERDTreeMinimalUI = 1
 
