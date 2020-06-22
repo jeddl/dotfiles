@@ -240,6 +240,7 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>gp :Gpush<CR>
 
 " ===============================
 
