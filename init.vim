@@ -23,6 +23,14 @@ set incsearch
 set termguicolors
 set scrolloff=8
 
+" Init
+let loaded_matchparen = 1
+let mapleader = " "
+let g:netrw_browse_split = 2
+let g:vrfr_rg = 'true'
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -58,7 +66,6 @@ Plugin 'git@github.com:inkarkat/vim-ingo-library.git'
 Plugin 'inkarkat/vim-spellcheck'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-"Plugin 'Yggdroot/indentLine'
 " TS syntax highlight
 Plugin 'git@github.com:leafgarland/typescript-vim.git'
 Plugin 'peitalin/vim-jsx-typescript'
@@ -144,7 +151,7 @@ augroup mygroup
 augroup end
 
 " Apply AutoFix to problem on the current line.
-" nmap <leader>qf<Plug>(coc-fix-current)
+ nmap <leader>qf <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -217,13 +224,6 @@ set background=dark
 " Show tab indentation (no spaces inserted)
 set list
 
-" Init
-let loaded_matchparen = 1
-let mapleader = " "
-let g:netrw_browse_split = 2
-let g:vrfr_rg = 'true'
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
