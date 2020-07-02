@@ -15,7 +15,7 @@ default_floating_border normal
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
+# bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
@@ -31,6 +31,7 @@ set $term --no-startup-id $TERMINAL
 bindsym $mod+Return exec $term
 bindsym $mod+e exec $term -e 'ranger'
 bindsym $mod+i exec $term -e 'neomutt'
+bindsym $mod+u exec $term -e 'calcurse'
 
 
 # kill focused window
@@ -62,7 +63,6 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -260,7 +260,7 @@ mode "$mode_system" {
 }
 
 # Resize window (you can also use the mouse for that)
-#bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 #mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
@@ -368,7 +368,7 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #556064 #8FBDCF #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
