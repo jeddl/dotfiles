@@ -22,6 +22,7 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
+set splitright
 
 " Init
 let loaded_matchparen = 1
@@ -30,6 +31,11 @@ let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+
+autocmd InsertEnter * norm zz
+
+" Remove trailin whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -48,32 +54,29 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 " filetype off                   " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')            " required
-Plugin 'VundleVim/Vundle.vim'  " required
-
+call plug#begin('~/.config/nvim/plugged')            " required
 " ===================
 " my plugins here
 " ===================
 
-Plugin 'neoclide/coc.nvim', {'branch': 'release'} 
-Plugin 'morhetz/gruvbox'
-Plugin 'scrooloose/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdtree'
 " File search
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'git@github.com:ctrlpvim/ctrlp.vim.git'
-Plugin 'mileszs/ack.vim'
-Plugin 'git@github.com:inkarkat/vim-ingo-library.git'
-Plugin 'inkarkat/vim-spellcheck'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'mileszs/ack.vim'
+Plug 'https://github.com/inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-spellcheck'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
 " TS syntax highlight
-Plugin 'git@github.com:leafgarland/typescript-vim.git'
-Plugin 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " ===================
 " end of plugins
 " ===================
-call vundle#end()               " required
+call plug#end()               " required
 filetype plugin indent on       " required
 
 
@@ -164,8 +167,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" 
-" ===== COC Related End ===== 
+"
+" ===== COC Related End =====
 
 " Syntax settings
 augroup SyntaxSettings
@@ -229,7 +232,6 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>v :vsplit v<CR>
-nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
