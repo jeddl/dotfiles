@@ -1,3 +1,5 @@
+set nocompatible
+filetype plugin on
 syntax on
 
 set guicursor=
@@ -23,6 +25,11 @@ set incsearch
 set termguicolors
 set scrolloff=8
 set splitright
+set spell spelllang=en_us
+set cursorline
+highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
+set cursorcolumn
+highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
 
 " Init
 let loaded_matchparen = 1
@@ -31,6 +38,10 @@ let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+let g:python3_host_prog = '/usr/bin/python3'
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/docs/vimwiki/', 'path_html': '~/Documents/docs/vimwiki/html'}]
 
 autocmd InsertEnter * norm zz
 
@@ -47,14 +58,7 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-" set nocompatible               " be improved, required
-" filetype off                   " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call plug#begin('~/.config/nvim/plugged')            " required
+call plug#begin('~/.config/nvim/plugged')
 " ===================
 " my plugins here
 " ===================
@@ -65,19 +69,17 @@ Plug 'scrooloose/nerdtree'
 " File search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'mileszs/ack.vim'
-Plug 'https://github.com/inkarkat/vim-ingo-library'
-Plug 'inkarkat/vim-spellcheck'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 " TS syntax highlight
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'vimwiki/vimwiki'
 
 " ===================
 " end of plugins
 " ===================
-call plug#end()               " required
-filetype plugin indent on       " required
+call plug#end()
 
 
 " ===== COC related =====
@@ -252,12 +254,4 @@ nmap <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>o :FZF<CR>
 
 " ===============================
-
-" SpellCheck
-nnoremap <leader>sp :SpellCheck<CR>
-let g:SpellCheck_DefineAuxiliaryCommands = 0
-" set spell
-highlight link qfSpellErrorWord             SpellBad
-highlight link qfSpellErrorWordInContext    Normal
-highlight link qfSpellContext               SpecialKey
 
