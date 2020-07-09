@@ -30,6 +30,9 @@ set cursorline
 highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
 set cursorcolumn
 highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
+" Set 80-char line
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Init
 let loaded_matchparen = 1
