@@ -5,7 +5,7 @@ syntax on
 set guicursor=
 set noshowmatch
 set relativenumber
-set nohlsearch
+set hlsearch
 set hidden
 set noerrorbells
 " set wrap linebreak
@@ -24,8 +24,7 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
-set splitright
-set spell spelllang=en_us
+set splitbelow splitright
 set cursorline
 highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
 set cursorcolumn
@@ -65,19 +64,26 @@ call plug#begin('~/.config/nvim/plugged')
 " ===================
 " my plugins here
 " ===================
-
+" Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Themes
 Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdtree'
-" File search
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+" File explore
+Plug 'scrooloose/nerdtree'
+" Fuzzy find file search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Git
+Plug 'tpope/vim-fugitive'
 " TS syntax highlight
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+" Documentation & notes
 Plug 'vimwiki/vimwiki'
+" Code comment
+Plug 'tpope/vim-commentary'
+
+Plug 'mileszs/ack.vim'
 
 " ===================
 " end of plugins
@@ -85,7 +91,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
-" ===== COC related =====
+" ===== COC =====
 "
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -149,6 +155,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+" Global Search
+nnoremap <leader>prs :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 augroup mygroup
   autocmd!
@@ -173,7 +181,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "
-" ===== COC Related End =====
+" ===== COC End =====
 
 " Syntax settings
 augroup SyntaxSettings
@@ -221,40 +229,44 @@ endif
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.maxlinenr = ''
 
-colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_invert_selection = '0'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'gruvbox'
-set background=dark
 "set list lcs=tab:\|\
 " Show tab indentation (no spaces inserted)
+colorscheme gruvbox
+set background=dark
 set list
+
+" Enable spell check
+nnoremap <leader>s :setlocal spell! spelllang=en_us<CR>
+" Replace all in the current buffer
+nnoremap <leader>rp :%s//gI<Left><Left><Left>
+" Press ESC to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <ESC> :nohlsearch<Bar>:echo<CR>
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>v :vsplit v<CR>
+nnoremap <leader>c :split c<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 " ===============================
 " Git Fugitive
-" ===============================
-
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gdiffsplit<CR>
-
 " ===============================
 
 " ===============================
 " FZF
-" ===============================
-
 nnoremap <leader>o :FZF<CR>
-
 " ===============================
 
