@@ -1,3 +1,6 @@
+" Change viminfo default dir
+set viminfo+=n~/.cache/nvim/viminfo
+
 set nocompatible
 filetype plugin on
 syntax on

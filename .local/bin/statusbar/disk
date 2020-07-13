@@ -14,10 +14,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-case "$location" in
-	"/home"* ) icon="🏠" ;;
-	"/mnt"* ) icon="💾" ;;
-	*) icon="💾";;
-esac
-
-printf "%s %s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
+printf "%s %s\n" "💾" "$(df -h "/home" | awk ' /[0-9]/ {print $3}')"
