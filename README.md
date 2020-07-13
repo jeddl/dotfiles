@@ -3,5 +3,5 @@
 My dotfiles of configuration of system, applications and plugins.
 
 # Update
-This repository will consitently be updated.
+This repository will constantly be updated.
 
