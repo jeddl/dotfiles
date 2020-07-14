@@ -1,0 +1,15 @@
+{
+	"coc.preferences.formatOnSaveFiletypes": [
+		"go",
+		"json",
+		"md",
+		"python"
+	],
+	"python.jediEnabled": false,
+	"go.goplsOptions": {
+		"completeUnimported": true
+	},
+	"go.disable": {
+		"workspaceFolders": false
+	}
+}

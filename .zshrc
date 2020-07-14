@@ -79,10 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups
 # History size
-export HISTSIZE=1000
-# When the shell exits, append to the history file instead of overwriting it
-#shopt -s histappend
-
+export HISTFILE=~/.cache/zsh/zsh_history
+export HISTSIZE=500
+export SAVEHIST=500
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -117,3 +116,4 @@ export READER="zathura"
 export QT_QPA_PLATFORMTHEME='qt5ct'
 export EDITOR="nvim"
 export PROMPT_COMMAND="resize &>/dev/null ; $PROMPT_COMMAND"
+export GOPATH=$HOME/.config/go
