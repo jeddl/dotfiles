@@ -102,10 +102,14 @@ export SAVEHIST=500
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias w="curl -sf \"wttr.in\""
-alias c="curl 'https://corona-stats.online?top=10'"
-alias matrix="inxi -Fxxxz"
-alias virinit="eval '$(pyenv init -)' && eval '$(pyenv virtualenv-init -)'"
+alias w='curl -sf "wttr.in"'
+alias c='curl "https://corona-stats.online?top=10"'
+alias matrix='inxi -Fxxxz'
+alias virinit='eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"'
+alias docker_start='sudo systemctl start docker'
+alias docker_stop='sudo systemctl stop docker'
+alias docker_nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force'
+alias dim='echo Terminal dimension: $(tput cols)x$(tput lines)'
 
 #export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export FILEMANAGER="/usr/bin/ranger"
