@@ -33,7 +33,7 @@ highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
 set cursorcolumn
 highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
 " Set 80-char line
-set colorcolumn=80
+set colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Init
@@ -50,7 +50,7 @@ let g:vimwiki_list = [{'path': '~/Documents/docs/vimwiki/', 'path_html': '~/Docu
 
 autocmd InsertEnter * norm zz
 
-" Remove trailin whitespaces on save
+" Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
 " Give more space for displaying messages.
@@ -216,7 +216,7 @@ autocmd FileType python setlocal ts=4 sts =2 sw=4
 autocmd FileType go setlocal ts=8 sts=2 sw=8
 
 " ==============================
-" Indentation Setttings End
+" Indentation Settings End
 " ==============================
 
 " Theme and syntax
@@ -230,9 +230,9 @@ endif
 "let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
 "let g:airline_right_alt_sep = ''
-"let g:airline_symbols.brach = ''
+"let g:airline_symbols.branch = ''
 "let g:airline_symbols.readonly = ''
-"let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.maxliner = ''
 
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = '0'
