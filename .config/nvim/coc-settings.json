@@ -11,5 +11,6 @@
 	},
 	"go.disable": {
 		"workspaceFolders": false
-	}
+	},
+	"snippets.enableStatusItem": false
 }
