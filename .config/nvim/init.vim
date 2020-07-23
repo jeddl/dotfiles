@@ -85,6 +85,8 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'vimwiki/vimwiki'
 " Code comment
 Plug 'tpope/vim-commentary'
+" Vim start screen
+Plug 'mhinz/vim-startify'
 
 Plug 'mileszs/ack.vim'
 
@@ -237,10 +239,11 @@ endif
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = '0'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'gruvbox'
+let g:NERDTreeWinSize = 40
+
 "set list lcs=tab:\|\
 " Show tab indentation (no spaces inserted)
 colorscheme gruvbox
