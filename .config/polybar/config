@@ -115,6 +115,7 @@ interval = 1800
 [module/mail]
 type = custom/script
 exec = ~/.local/bin/statusbar/mailbox
+click-left = $TERMINAL -e neomutt
 label = "%output%"
 interval = 60
 
@@ -188,7 +189,7 @@ label-mode-background = #e60053
 label-focused = %index%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
-label-focused-underline = #fba922
+label-focused-underline = #00ff00
 label-focused-padding = 1
 
 ; Available tokens:
