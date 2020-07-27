@@ -275,6 +275,8 @@ nmap <leader>gd :Gdiffsplit<CR>
 
 " ===============================
 " FZF
+let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
+let SFZF_DEFAULT_OPTS = '--reverse'
 nnoremap <leader>o :FZF<CR>
 " ===============================
 
