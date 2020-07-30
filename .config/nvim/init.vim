@@ -32,9 +32,10 @@ set cursorline
 highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
 set cursorcolumn
 highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
-" Set 80-char line
+" Set 100 characters limit
 set colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey
+set mouse=a
 
 " Init
 let loaded_matchparen = 1
@@ -72,6 +73,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+" File icons
+Plug 'ryanoasis/vim-devicons'
 " File explore
 Plug 'scrooloose/nerdtree'
 " Fuzzy find file search
@@ -236,8 +239,10 @@ endif
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.maxliner = ''
 
+set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_invert_selection = '0'
+colorscheme gruvbox
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -246,8 +251,6 @@ let g:NERDTreeWinSize = 40
 
 "set list lcs=tab:\|\
 " Show tab indentation (no spaces inserted)
-colorscheme gruvbox
-set background=dark
 set list
 
 " Enable spell check
@@ -278,5 +281,19 @@ nmap <leader>gd :Gdiffsplit<CR>
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
 let SFZF_DEFAULT_OPTS = '--reverse'
 nnoremap <leader>o :FZF<CR>
+let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'FZFBackground'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'FZFHighlight', 'FZFHighlight'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 " ===============================
 

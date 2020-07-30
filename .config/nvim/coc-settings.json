@@ -6,6 +6,9 @@
 		"python"
 	],
 	"python.jediEnabled": false,
+	"python.linting.mypyEnabled": true,
+	"python.linting.banditEnabled": true,
+	"python.linting.flake8Enabled": true,
 	"go.goplsOptions": {
 		"completeUnimported": true
 	},
