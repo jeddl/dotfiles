@@ -1,0 +1,6 @@
+coc-go
+coc-json
+coc-pairs
+coc-python
+coc-snippets
+coc-tsserver
