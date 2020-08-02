@@ -35,7 +35,7 @@ highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
 " Set 100 characters limit
 set colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-set mouse=a
+" set mouse=a
 
 " Init
 let loaded_matchparen = 1
@@ -90,6 +90,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-commentary'
 " Vim start screen
 Plug 'mhinz/vim-startify'
+" Tag bar
+Plug 'majutsushi/tagbar'
 
 Plug 'mileszs/ack.vim'
 
@@ -297,3 +299,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 " ===============================
 
+" ===============================
+" Tag bar
+nmap <leader>b :TagbarToggle<CR>
+" ===============================
