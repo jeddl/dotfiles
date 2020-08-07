@@ -44,7 +44,6 @@ alias \
 
 # Fav
 alias \
-	v='nvim' \
 	arch_info='inxi -Fxxxz' \
 	virinit='eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"' \
 	docker_start='sudo systemctl start docker' \
@@ -52,4 +51,3 @@ alias \
 	docker_nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force' \
 	l='ls -laF' \
 	sc='source ~/.config/zsh/.zshrc'
-
