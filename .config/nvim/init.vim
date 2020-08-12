@@ -47,7 +47,7 @@ let g:netrw_winsize = 25
 let g:python3_host_prog = '/usr/bin/python3'
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Documents/docs/vimwiki/', 'path_html': '~/Documents/docs/vimwiki/html'}]
+let g:vimwiki_list = [{'path': '~/Codebase/vim-wiki-note/vimwiki', 'path_html': '~/Documents/docs/vimwiki/html'}]
 
 autocmd InsertEnter * norm zz
 
@@ -79,6 +79,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 " Fuzzy find file search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 " TS syntax highlight
@@ -112,7 +113,7 @@ else
   set signcolumn=yes
 endif
 
-" Use tab for trigger completion with characters ahead and navigate.
+" Use tab for trigger completion with characters ahea and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
@@ -233,6 +234,7 @@ endif
 
 " powerline symbols
 " NOTE: In case airline_powerline_fonts = 1 does not work
+let g:airline_left_sep = ''
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
@@ -247,6 +249,7 @@ let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'gruvbox'
 let g:NERDTreeWinSize = 40
@@ -276,13 +279,15 @@ nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 " Git Fugitive
 nmap <leader>gs :G<CR>
 nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>gm :G mergetool<CR>
 " ===============================
 
 " ===============================
-" FZF
+" FZF & Ag
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.8}}
 let SFZF_DEFAULT_OPTS = '--reverse'
 nnoremap <leader>o :FZF<CR>
+nnoremap <leader>i :Ag<CR>
 let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'FZFBackground'],
@@ -302,4 +307,4 @@ let g:fzf_colors =
 " ===============================
 " Tag bar
 nmap <leader>b :TagbarToggle<CR>
-" ===============================
+" ===============================d
