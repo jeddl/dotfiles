@@ -274,6 +274,7 @@ nnoremap <leader>c :split c<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+vmap <leader>y "+y<CR>
 
 " ===============================
 " Git Fugitive
@@ -307,4 +308,4 @@ let g:fzf_colors =
 " ===============================
 " Tag bar
 nmap <leader>b :TagbarToggle<CR>
-" ===============================d
+" ===============================
