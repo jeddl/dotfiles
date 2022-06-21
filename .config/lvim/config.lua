@@ -12,7 +12,9 @@ vim.opt.relativenumber = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["gt"] = ":TagbarToggle<CR>"
+lvim.keys.normal_mode["gSl"] = ":vsplit<CR>"
+lvim.keys.normal_mode["gSk"] = ":split<CR>"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
@@ -37,7 +39,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
 	name = "+Trouble",
 	r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -66,6 +68,7 @@ lvim.builtin.lualine.options = {
 -- Term execs
 lvim.builtin.terminal.execs = { { "lazygit", "eg", "LazyGit" } }
 
+lvim.builtin.telescope.defaults = { file_ignore_patterns = { "assets", "node_modules", ".idea", ".vscode" } }
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
@@ -103,15 +106,11 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
--- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
+-- Set a custom on_attach function that will be used for all the language servers
+lvim.lsp.on_attach_callback = function(client, bufnr)
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+end
 
 -- Formatters are lazy loaded
 
@@ -176,9 +175,25 @@ lvim.plugins = {
 			vim.g.indent_blankline_show_first_indent_level = true
 		end
 	},
+	-- Golang
+	{
+		"leoluz/nvim-dap-go",
+		config = function()
+			require("dap-go").setup()
+		end
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		config = function()
+			require("dapui").setup()
+		end
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("nvim-dap-virtual-text").setup()
+		end
+	},
+	{ "preservim/tagbar" }
+	-- ================
 }
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
