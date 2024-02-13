@@ -12,9 +12,9 @@ return {
         },
         inverse = true,
       })
-      require("notify").setup({
-        background_colour = "#000000",
-      })
+      -- require("notify").setup({
+      --   background_colour = "#000000",
+      -- })
     end,
   },
   {
@@ -30,31 +30,24 @@ return {
     },
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = true,
-    config = function(_, _)
-      require("rose-pine").setup({
-        variant = "auto",
-        --- @usage 'main'|'moon'|'dawn'
-        dark_variant = "moon",
-        disable_italics = true,
-        highlight_groups = {
-          -- Blend colours against the "base" background
-          -- CursorLine = { bg = "foam", blend = 15 },
-          -- NormalFloat = { bg = "foam", blend = 10 },
-          -- FloatBorder = { bg = "love", blend = 15 },
-          -- Pmenu = { bg = "foam" },
-          -- PmenuSel = { bg = "pine", blend = 20 },
+    "rebelot/kanagawa.nvim",
+    opts = {
+      transparent = true,
+      -- theme = "dragon",
+      colors = {
+        theme = {
+          all = { ui = {
+            bg_gutter = "none",
+            float = { bg = "#3d5066" },
+          } },
         },
-      })
-    end,
+      },
+    },
   },
-
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "kanagawa",
     },
   },
 }

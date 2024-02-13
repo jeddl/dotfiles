@@ -7,6 +7,14 @@ return {
     end,
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = {
+        enabled = true,
+      },
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     lazy = true,
