@@ -48,11 +48,11 @@ return {
   {
     "rose-pine/neovim",
     opts = {
-      variant = "moon",
-      dark_variant = "moon",
+      variant = "main",
+      dark_variant = "main",
       styles = {
         bold = true,
-        italic = true,
+        italic = false,
         transparency = true,
       },
       groups = {
@@ -68,8 +68,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
-      -- colorscheme = "rose-pine",
-      colorscheme = "tokyonight",
+      colorscheme = "rose-pine",
+      -- colorscheme = "tokyonight",
     },
   },
 }

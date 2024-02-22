@@ -30,6 +30,18 @@ vim.keymap.set(
   ":lua require('harpoon.ui').nav_prev()<CR>",
   { silent = true, desc = "Harpoon Nav to the Previous File" }
 )
+vim.keymap.set(
+  "n",
+  "<C-u>",
+  "<C-u>zz<CR>",
+  { silent = true, desc = "Move up & Move Cursor to the Middle of the Screen" }
+)
+vim.keymap.set(
+  "n",
+  "<C-d>",
+  "<C-d>zz<CR>",
+  { silent = true, desc = "Move down & Move Cursor to the Middle of the Screen" }
+)
 
 -- Insert Mode
 vim.keymap.set("i", "jk", "<esc>", { noremap = true, desc = "Escape" })
