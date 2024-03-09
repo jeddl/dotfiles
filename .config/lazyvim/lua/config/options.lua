@@ -10,3 +10,5 @@ opt.smartindent = true
 opt.smarttab = true
 
 opt.shell = "/bin/zsh"
+
+vim.o.termguicolors = true

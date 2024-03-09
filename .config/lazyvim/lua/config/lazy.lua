@@ -7,6 +7,8 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  ui = { border = "rounded" },
+
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
@@ -17,13 +19,14 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.go" },
-    -- { import = "lazyvim.plugins.extras.lang.markdown" },
+    -- { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
 
     { import = "lazyvim.plugins.extras.dap.core" },
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
+    -- { import = "lazyvim.plugins.extras.coding.copilot" }, -- customized; don't want to use the defaults
     { import = "lazyvim.plugins.extras.test.core" },
 
-    { import = "lazyvim.plugins.extras.editor.symbols-outline" },
+    { import = "lazyvim.plugins.extras.editor.outline" },
     { import = "lazyvim.plugins.extras.editor.leap" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins

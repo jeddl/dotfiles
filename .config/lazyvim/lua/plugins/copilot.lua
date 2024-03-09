@@ -6,7 +6,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<Tab>",
+          accept = "<C-CR>",
           next = "<C-j>",
           prev = "<C-i>",
         },
@@ -16,13 +16,13 @@ return {
       },
     },
     fileTypes = {
-      lua = true,
       typescript = true,
       javascript = true,
       terraform = true,
       go = true,
       python = true,
       yaml = true,
+      markdown = true,
     },
   },
 }

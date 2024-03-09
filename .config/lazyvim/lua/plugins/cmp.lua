@@ -32,6 +32,16 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
+      -- Add borders to the completion menu
+      cmp.setup({
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+      })
+      -- Completion menu transparency
+      vim.opt.pumblend = 0
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then

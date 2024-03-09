@@ -7,25 +7,28 @@ return {
         invert_selection = false,
         contrast = "soft",
         transparent_mode = true,
+        palette_overrides = {},
         overrides = {
-          PmenuSel = { bg = "#ff9900", fg = "white" },
+          -- ["@lsp.type.method"] = { fg = "#d3869b" },
+          -- ["@lsp.type.function"] = { fg = "#d3869b" },
+          ["@lsp.type.class"] = { fg = "#cecb94" },
+          ["@lsp.type.interface"] = { fg = "#cecb94" },
+          ["@lsp.type.struct"] = { fg = "#cecb94" },
+          ["@lsp.type.type"] = { fg = "#cecb94" },
         },
         inverse = true,
       })
-      -- require("notify").setup({
-      --   background_colour = "#000000",
-      -- })
     end,
   },
   {
     "folke/tokyonight.nvim",
     opts = {
-      style = "storm",
+      style = "moon",
       transparent = true,
       terminal_colors = true,
       styles = {
         sidebars = "transparent",
-        floats = { bg = "#3d5066" },
+        -- floats = { bg = "#3d5066" },
       },
       lualine_bold = true,
     },
@@ -55,21 +58,19 @@ return {
         italic = false,
         transparency = true,
       },
-      groups = {
-        -- panel = { bg = "#3d5066" },
-      },
+      groups = {},
     },
     config = function(_, opts)
       require("rose-pine").setup(opts)
-      -- require("notify").setup({ background_colour = "#3d5066" })
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "kanagawa",
-      colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine",
       -- colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
     },
   },
 }
