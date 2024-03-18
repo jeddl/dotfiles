@@ -89,6 +89,7 @@ terminal = "alacritty"
 browser = "brave-browser"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
+file_browser = terminal .. " -e lf"
 
 globalkeys = awful.util.table.join(
 	globalkeys,
@@ -284,32 +285,26 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Create a tasklist widget
-	-- s.mytasklist = awful.widget.tasklist({
-	-- 	screen = s,
-	-- 	filter = awful.widget.tasklist.filter.currenttags,
-	-- 	buttons = tasklist_buttons,
-	-- 	style = {
-	-- 		shape = gears.shape.rounded_bar,
-	-- 	},
-	-- })
-	--
 	s.mytasklist = awful.widget.tasklist({
 		screen = s,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
+		style = {
+			shape = "",
+		},
 		layout = {
 			spacing_widget = {
 				valign = "center",
 				halign = "center",
 				widget = wibox.container.place,
 			},
-			spacing = 1,
+			spacing = 2,
 			layout = wibox.layout.fixed.horizontal,
 		},
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", align = "right", screen = s, height = 30, width = 1700, opacity = 0.8 })
+	s.mywibox = awful.wibar({ position = "top", align = "right", screen = s, height = 30, width = 2500, opacity = 0.7 })
 	awful.placement.align(s.mywibox, { position = "top", margins = 5 })
 
 	-- Add widgets to the wibox
@@ -433,23 +428,19 @@ globalkeys = gears.table.join(
 		end
 	end, { description = "restore minimized", group = "client" }),
 
-	--Bind sh
-	--
-
 	awful.key({ modkey, "Shift" }, "r", function()
-		awful.util.spawn("nitrogen --set-zoom-fill --random ~/Pictures/Wallpaper ")
+		awful.util.spawn("nitrogen --set-zoom-fill --random $HOME/Pictures/wallpaper ")
 	end),
 
 	-- Bind applications
-	-- Firefox
 	awful.key({ modkey }, "b", function()
 		awful.util.spawn("brave-browser")
 	end, { description = "Brave", group = "applications" }),
 
 	--File manager
-	-- awful.key({ modkey }, "v", function()
-	-- 	awful.util.spawn("pcmanfm")
-	-- end, { description = "pcmanfm", group = "applications" }),
+	awful.key({ modkey }, "d", function()
+		awful.spawn(terminal .. " -e lf")
+	end, { description = "open lf file manager", group = "applications" }),
 
 	-- Prompt
 	awful.key({ modkey }, "r", function()
