@@ -40,7 +40,7 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
-	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 
 # Fav
 alias \
@@ -49,5 +49,5 @@ alias \
 	docker_start='sudo systemctl start docker' \
 	docker_stop='sudo systemctl stop docker' \
 	docker_nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force' \
-	l='ls -laF' \
+	ll='ls -laF' \
 	sc='source ~/.config/zsh/.zshrc'

@@ -11,4 +11,6 @@ opt.smarttab = true
 
 opt.shell = "/bin/zsh"
 
+opt.guicursor = "n-v-i-c:block,i-ci-ve:block-Cursor,r-cr-o:block-Cursor"
+
 vim.o.termguicolors = true
