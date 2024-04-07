@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# This is a script to load tmux sessions using tmuxifier and pile them up into fzf
+# Prerequisites: tmux, tmuxifier, session.sh files in `tmux/plugins/tmuxifier/layouts`
+
+projects=$(find ~/.config/tmux/plugins/tmuxifier/layouts -type f -name '*session*' -exec basename -s .session.sh {} \;)
+selected=$(echo $projects | tr ' ' '\n' | fzf --prompt="Select project: ")
+
+tmuxifier load-session $selected
