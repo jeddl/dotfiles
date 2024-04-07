@@ -14,3 +14,7 @@ opt.shell = "/bin/zsh"
 opt.guicursor = "n-v-i-c:block,i-ci-ve:block-Cursor,r-cr-o:block-Cursor"
 
 vim.o.termguicolors = true
+
+-- Global
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_refresh_rate_idle = 5
