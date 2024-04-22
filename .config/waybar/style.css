@@ -2,15 +2,5 @@
  * Import Pywal colors 
  * ----------------------------------------------------- */
 
-/* The matrix style */
-@define-color backgroundlight #204829;
-@define-color backgrounddark #000000;
-@define-color workspacesbackground1 #22b455;
-@define-color workspacesbackground2 #000000;
-@define-color bordercolor #22b455;
-@define-color textcolor1 #22b455;
-@define-color textcolor2 #22b455;
-@define-color textcolor3 #22b455;
-@define-color iconcolor #22b455;
-
-@import './theme/dark.css';
+/* @import './theme/matrix/style.css'; */
+@import './theme/default_inspired/style.css';

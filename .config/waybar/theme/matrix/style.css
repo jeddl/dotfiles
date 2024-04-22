@@ -1,0 +1,12 @@
+/* The matrix style */
+@define-color backgroundlight #204829;
+@define-color backgrounddark #000000;
+@define-color workspacesbackground1 #00ff41;
+@define-color workspacesbackground2 #000000;
+@define-color bordercolor #00ff41;
+@define-color textcolor1 #00ff41;
+@define-color textcolor2 #00ff41;
+@define-color textcolor3 #00ff41;
+@define-color iconcolor #00ff41;
+
+@import '../dark.css';
