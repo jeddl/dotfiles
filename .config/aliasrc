@@ -48,6 +48,7 @@ alias \
 	virinit='eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"' \
 	docker_start='sudo systemctl start docker' \
 	docker_stop='sudo systemctl stop docker' \
-	docker_nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force' \
+	nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force' \
 	ll='ls -laF' \
-	sc='source ~/.config/zsh/.zshrc'
+	sc='source ~/.config/zsh/.zshrc' \
+	goto=". ~/.local/bin/goto.sh"
