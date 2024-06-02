@@ -34,6 +34,13 @@ return {
 
       -- Add borders to the completion menu
       cmp.setup({
+        -- Automatically highlight the first suggestion
+        preselect = "None",
+        completion = {
+          completeopt = "menu, menuone, noinsert",
+        },
+
+        -- Window boarder
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
