@@ -9,6 +9,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      -- setup = {
+      -- prevent 2 rust analyzer running if installed by Mason, which does not start automatically
+      -- if rust analyzer is installed manually, this function can be removed
+      -- note that it's recommended to install rust via rustup
+      -- rust_analyzer = function()
+      --   return true
+      -- end,
+      -- },
       inlay_hints = {
         enabled = true,
       },
@@ -32,7 +40,6 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
-      -- Add borders to the completion menu
       cmp.setup({
         -- Automatically highlight the first suggestion
         preselect = "None",
@@ -40,7 +47,7 @@ return {
           completeopt = "menu, menuone, noinsert",
         },
 
-        -- Window boarder
+        -- Add borders to the completion menu
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
