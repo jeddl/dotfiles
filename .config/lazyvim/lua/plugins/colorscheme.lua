@@ -9,12 +9,16 @@ return {
         transparent_mode = true,
         palette_overrides = {},
         overrides = {
-          -- ["@lsp.type.method"] = { fg = "#d3869b" },
-          -- ["@lsp.type.function"] = { fg = "#d3869b" },
-          ["@lsp.type.class"] = { fg = "#cecb94" },
-          ["@lsp.type.interface"] = { fg = "#cecb94" },
-          ["@lsp.type.struct"] = { fg = "#cecb94" },
-          ["@lsp.type.type"] = { fg = "#cecb94" },
+          -- reference: https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox.lua
+          Function = { fg = "#d3869b", bold = true }, -- purple
+          CmpItemKindFunction = { fg = "#d3869b", bold = true }, -- purple
+          CmpItemKindMethod = { fg = "#d3869b", bold = true }, -- purple
+
+          ["@parameter"] = { fg = "#8ec07c" }, -- aqua
+          ["@variable"] = { fg = "#83a598" }, -- blue
+          ["@type"] = { fg = "#d79921" }, -- neutral yellow
+          ["@constructor"] = { fg = "#cecb94" }, -- yellow
+          ["@namespace"] = { fg = "#f2e5bc" }, -- light soft
         },
         inverse = true,
       })
