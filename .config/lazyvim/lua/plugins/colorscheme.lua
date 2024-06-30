@@ -27,12 +27,12 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      style = "moon",
+      style = "night",
       transparent = true,
       terminal_colors = true,
       styles = {
         sidebars = "transparent",
-        -- floats = { bg = "#3d5066" },
+        floats = "transparent",
       },
       lualine_bold = true,
     },
