@@ -6,22 +6,22 @@ return {
       return {}
     end,
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- setup = {
-      -- prevent 2 rust analyzer running if installed by Mason, which does not start automatically
-      -- if rust analyzer is installed manually, this function can be removed
-      -- note that it's recommended to install rust via rustup
-      -- rust_analyzer = function()
-      --   return true
-      -- end,
-      -- },
-      inlay_hints = {
-        enabled = true,
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     -- setup = {
+  --     -- prevent 2 rust analyzer running if installed by Mason, which does not start automatically
+  --     -- if rust analyzer is installed manually, this function can be removed
+  --     -- note that it's recommended to install rust via rustup
+  --     -- rust_analyzer = function()
+  --     --   return true
+  --     -- end,
+  --     -- },
+  --     inlay_hints = {
+  --       enabled = true,
+  --     },
+  --   },
+  -- },
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -53,8 +53,6 @@ return {
           documentation = cmp.config.window.bordered(),
         },
       })
-      -- Completion menu transparency
-      vim.opt.pumblend = 0
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
