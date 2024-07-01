@@ -16,14 +16,24 @@ alias \
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
+	ll='ls -laF --color=auto --group-directories-first' \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
+# Git
+alias \
+	g="git" \
+	gp="git pull origin" \
+	gf="git fetch origin" \
+	gP="git push" \
+	gPf="git push -f" \
+	gc="git commit" \
+	gr="git rebase main"
+
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	g="git" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
@@ -31,6 +41,7 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="sudo pacman" \
+	d="sudo dnf" \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
@@ -46,9 +57,9 @@ alias \
 alias \
 	arch_info='inxi -Fxxxz' \
 	virinit='eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"' \
-	docker_start='sudo systemctl start docker' \
-	docker_stop='sudo systemctl stop docker' \
+	dst='sudo systemctl start docker' \
+	dsp='sudo systemctl stop docker' \
 	nuke='docker rm $(docker ps -a -q) && docker rmi $(docker images -q) --force' \
-	ll='ls -laF' \
 	sc='source ~/.config/zsh/.zshrc' \
+	ipshow="ip addr show" \
 	goto=". ~/.local/bin/goto.sh"
