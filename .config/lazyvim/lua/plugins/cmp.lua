@@ -79,6 +79,30 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+
+        -- Snippet autocompletion with <C-l> and <C-h> to jump forward and backward between placeholders
+        ["<C-l>"] = cmp.mapping(function(fallback)
+          if vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<C-h>"] = cmp.mapping(function(fallback)
+          if vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       })
     end,
   },
