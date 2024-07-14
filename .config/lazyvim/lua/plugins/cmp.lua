@@ -49,8 +49,12 @@ return {
 
         -- Add borders to the completion menu
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({
+            winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+          }),
+          documentation = cmp.config.window.bordered({
+            winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+          }),
         },
       })
 
