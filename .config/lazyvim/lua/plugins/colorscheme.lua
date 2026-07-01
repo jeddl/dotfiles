@@ -3,9 +3,10 @@ return {
     "ellisonleao/gruvbox.nvim",
     config = function(_, _)
       require("gruvbox").setup({
+        dim_inactive = false,
         terminal_colors = true,
         invert_selection = false,
-        contrast = "soft",
+        contrast = "hard",
         transparent_mode = true,
         palette_overrides = {},
         overrides = {
@@ -27,7 +28,7 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      style = "night",
+      style = "Storm",
       transparent = true,
       terminal_colors = true,
       styles = {
@@ -40,17 +41,28 @@ return {
   {
     "rebelot/kanagawa.nvim",
     opts = {
-      transparent = true,
-      -- theme = "dragon",
+      -- transparent = true,
+      theme = "dragon",
+      background = {
+        dark = "wave",
+        light = "lotus",
+      },
+      dimInactive = true,
+      compile = false,
       colors = {
         theme = {
-          all = { ui = {
-            bg_gutter = "none",
-            float = { bg = "#3d5066" },
-          } },
+          all = {
+            ui = {
+              bg_gutter = "none",
+              -- float = { bg = "#3d5066" },
+            },
+          },
         },
       },
     },
+    -- config = function(_, opts)
+    --   require("kanagawa").setup(opts)
+    -- end,
   },
   {
     "rose-pine/neovim",
@@ -71,10 +83,10 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "kanagawa",
+      colorscheme = "kanagawa",
       -- colorscheme = "rose-pine",
       -- colorscheme = "tokyonight",
-      colorscheme = "gruvbox",
+      -- colorscheme = "gruvbox",
     },
   },
 }

@@ -6,26 +6,9 @@ return {
       return {}
     end,
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     -- setup = {
-  --     -- prevent 2 rust analyzer running if installed by Mason, which does not start automatically
-  --     -- if rust analyzer is installed manually, this function can be removed
-  --     -- note that it's recommended to install rust via rustup
-  --     -- rust_analyzer = function()
-  --     --   return true
-  --     -- end,
-  --     -- },
-  --     inlay_hints = {
-  --       enabled = true,
-  --     },
-  --   },
-  -- },
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    lazy = true,
     dependencies = {
       "hrsh7th/cmp-emoji",
     },
@@ -58,12 +41,18 @@ return {
         },
       })
 
+      -- Setup for vim-dadbod
+      cmp.setup.filetype({ "sql" }, {
+        sources = {
+          { name = "vim-dadbod-completion" },
+          { name = "buffer" },
+        },
+      })
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.select_next_item()
-            -- cmp.confirm({ select = true })
           elseif vim.snippet.active({ direction = 1 }) then
             vim.schedule(function()
               vim.snippet.jump(1)
@@ -77,37 +66,39 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
           else
             fallback()
           end
         end, { "i", "s" }),
 
         -- Snippet autocompletion with <C-l> and <C-h> to jump forward and backward between placeholders
-        ["<C-l>"] = cmp.mapping(function(fallback)
-          if vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<C-h>"] = cmp.mapping(function(fallback)
-          if vim.snippet.active({ direction = -1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(-1)
-            end)
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
+        -- ["<C-l>"] = cmp.mapping(function(fallback)
+        --   if vim.snippet.active({ direction = 1 }) then
+        --     vim.schedule(function()
+        --       vim.snippet.jump(1)
+        --     end)
+        --   elseif luasnip.expand_or_jumpable() then
+        --     luasnip.expand_or_jump()
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
+        -- ["<C-h>"] = cmp.mapping(function(fallback)
+        --   if vim.snippet.active({ direction = -1 }) then
+        --     vim.schedule(function()
+        --       vim.snippet.jump(-1)
+        --     end)
+        --   elseif luasnip.jumpable(-1) then
+        --     luasnip.jump(-1)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i", "s" }),
+        -- -- Enter to confirm selection
+        -- ["<CR>"] = cmp.mapping.confirm({ select = false }),
       })
+
+      return opts
     end,
   },
 }
